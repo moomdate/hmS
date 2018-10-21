@@ -78,7 +78,7 @@ export class MycourseComponent implements OnInit {
   ngOnInit() {
     this.spinner.show();
     let uid = localStorage.getItem('uid');
-    this.items = this.db.list(`Users/${uid}/`).valueChanges().subscribe(data => {
+     this.db.list(`Users/${uid}/`).valueChanges().subscribe(data => {
       this.listHomework = [];
       // tslint:disable-next-line:forin
       for (var key in data[0][this.cid]) {
