@@ -1,0 +1,29 @@
+<ngx-spinner></ngx-spinner>
+
+<div class="container">
+  <div class="container">
+    <h1>ส่งการบ้าน รายวิชา {{cid}}</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">รหัสวิชา</th>
+          <th scope="col">รายละเอียด</th>
+          <th scope="col">กำหนดส่งภายในวันที่</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of keyHw">
+
+          <th scope="row"><a href="/send/{{data.uid}}/{{data.cid}}/{{data.name}}/">{{data.name}}</a></th>
+          <td>{{data.detail}}</td>
+          <td>{{data.date}}</td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>

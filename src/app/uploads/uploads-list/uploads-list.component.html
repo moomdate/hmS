@@ -1,0 +1,4 @@
+<h3>รายการไฟล์ของ :{{cardid}}</h3>
+<div *ngFor="let file of fileUploads">
+  <app-upload-detail [fileUpload]='file'></app-upload-detail>
+</div>

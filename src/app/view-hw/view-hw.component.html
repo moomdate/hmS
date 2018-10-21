@@ -1,0 +1,44 @@
+<ngx-spinner></ngx-spinner>
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item active">
+      รายการส่งการบ้าน วิชา{{name}} รหัส : {{cid}}
+      <p>
+        <small>{{detail}}</small>
+      </p>
+    </li>
+
+    <li class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let column of list; let in = index">
+      <div *ngIf="column[0]!='datetime'&& column[0]!='detail'">
+
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"> {{column[0]}}</h5>
+          <small> <button class="btn btn-small btn-outline-primary" (click)="open(content)">ดูไฟล์</button>
+          </small>
+        </div>
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">ไฟล์โดยรหัส {{column[0]}}</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <ul class="list-group" *ngFor="let data2 of column">
+            <li class="list-group-item" *ngIf="data2.name!=null">
+              <h6>File{{data2.name}}
+                <hr />
+                <a href="{{data2.url}}">Download</a>
+              </h6>
+            </li>
+          </ul>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+          </div>
+        </ng-template>
+      </div>
+
+    </li>
+
+  </ul>
+
+</div>

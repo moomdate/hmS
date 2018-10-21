@@ -1,0 +1,58 @@
+<app-topmenu></app-topmenu>
+<ngx-spinner></ngx-spinner>
+<div class="container">
+
+    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">เพิ่มรายวิชา</button>
+
+    <hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">รหัสวิชา</th>
+                <th scope="col">จัดการ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of listCourse;let in = index">
+                <th scope="row">{{in}}</th>
+                <td><a href="/mycourse/{{data}}">{{data}}</a></td>
+                <td><button class="btn btn-danger" (click)="deletCC(data)">ลบวิชา</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">เพิ่มรายวิชา</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">รหัสวิชา</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="" #cie>
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">ชื่อวิชา</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="" #cname>
+                    <small id="emailHelp" class="form-text text-muted">ภาษาไทยหรือภาษาอังกฤษก็ได้</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">รายละเอียดวิชา</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" #detail></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close({id:cie.value,name:cname.value,detail:detail.value})">Save</button>
+        </div>
+    </ng-template>
+</div>
