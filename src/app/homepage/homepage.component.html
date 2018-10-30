@@ -1,24 +1,26 @@
 <app-topmenu></app-topmenu>
 <ngx-spinner></ngx-spinner>
 <div class="container">
-
-    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">เพิ่มรายวิชา</button>
-
+    <p style="margin-top: 8px">
+        <button class="btn btn-lg btn-outline-primary" (click)="open(content)">เพิ่มรายวิชา</button>
+    </p>
     <hr>
 
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">ลำดับ</th>
                 <th scope="col">รหัสวิชา</th>
                 <th scope="col">จัดการ</th>
+                <th scope="col">นำเข้ารายชื่อ</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let data of listCourse;let in = index">
-                <th scope="row">{{in}}</th>
+                <th scope="row">{{in+1}}</th>
                 <td><a href="/mycourse/{{data}}">{{data}}</a></td>
-                <td><button class="btn btn-danger" (click)="deletCC(data)">ลบวิชา</button></td>
+                <td><button class="btn btn-success" (click)="deletCC(data)">ลบวิชา</button></td>
+                <td><a class="btn btn-success" href="/manage/{{data}}">Import</a></td>
             </tr>
 
         </tbody>

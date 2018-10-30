@@ -11,6 +11,7 @@ import { UploadHWComponent } from './upload-hw/upload-hw.component';
 import { EnterStudentIdComponent } from './enter-student-id/enter-student-id.component';
 import { ViewHWComponent } from './view-hw/view-hw.component';
 import { RegistComponent } from './regist/regist.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 
 const appRoutes: Routes = [
     {
@@ -43,6 +44,9 @@ const appRoutes: Routes = [
     },
     {
         path: 'lists/:hid/:cc', component: ViewHWComponent,
+    },
+    {
+        path: 'manage/:cid', component: ManageUserComponent,
     }
 
 ];

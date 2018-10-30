@@ -29,6 +29,7 @@ import { ViewHWComponent } from './view-hw/view-hw.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { RegistComponent } from './regist/regist.component';
 import { Nav2Component } from './nav2/nav2.component';
+import { ManageUserComponent } from './manage-user/manage-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { Nav2Component } from './nav2/nav2.component';
     ViewHWComponent,
     RegistComponent,
     Nav2Component,
+    ManageUserComponent,
   ],
   imports: [
     BrowserModule,
